@@ -1,2 +1,4 @@
 # Cross Compiler installation dir.
 opt/ 
+*.o
+*.bin

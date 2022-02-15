@@ -5,6 +5,8 @@ FLAGS equ MBALIGN | MEMINFO | FRAMEBUFFER
 MAGIC    equ  0x1BADB002
 CHECKSUM equ -(MAGIC + FLAGS)
 
+extern kernel_main
+
 section .multiboot
 align 4
         dd MAGIC
@@ -21,11 +23,10 @@ section .text
 global _start:function (_start.end - _start)
 _start:
         mov esp, stack_top  ; small kernel stack
-
-        push eax            ; Multiboot MAGIC number.
+        
         push ebx            ; Multiboot Info Struct Address.
+        push eax            ; Multiboot MAGIC number.
 
-        extern kernel_main
         call kernel_main    ; call kernel C entry point
 
         cli

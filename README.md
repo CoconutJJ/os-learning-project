@@ -22,6 +22,6 @@ leaving myself so I don't forget.
   - Multiboot Specification:
     https://www.gnu.org/software/grub/manual/multiboot/multiboot.html
     - Contains the struct needed to find framebuffer address
-
+- https://littleosbook.github.io/
 Must compile with `-ffreestanding` flag.
 
