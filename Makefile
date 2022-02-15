@@ -4,6 +4,9 @@ FLAGS=-ffreestanding -Wall -Wextra -O2 -std=gnu99 -nostdlib
 
 all: boot.o kernel.o font.o
 	$(CC) $(FLAGS) -T linker.ld -o myos.bin boot.o kernel.o font.o -lgcc
+	mv myos.bin isodir/boot
+	grub-mkrescue -o myos.iso isodir
+
 
 boot.o: boot.asm
 	$(ASM) boot.asm -o boot.o

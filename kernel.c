@@ -71,7 +71,6 @@ void putchar_pixbuf (unsigned short int c, int cx, int cy, uint32_t fg, uint32_t
 void kernel_main (unsigned long multiboot_magic_number, unsigned long multiboot_struct_addr)
 {
         if (multiboot_magic_number != MULTIBOOT_BOOTLOADER_MAGIC) {
-                putchar ((int)'!');
                 return;
         }
 
